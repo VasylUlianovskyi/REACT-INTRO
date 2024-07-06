@@ -6,36 +6,17 @@ const root = ReactDOM.createRoot(rootEl);
 root.render(<App />);
 
 function App() {
-  const news = [
-    {
-      title: "Some news1",
-      body: "Something hapenned1",
-      isGood: false,
-    },
-    {
-      title: "Some news2",
-      body: "Something hapenned2",
-      isGood: true,
-    },
-  ];
-  return (
-    <>
-      <News newsItem={news[0]} />
-      <News newsItem={news[1]} />
-    </>
-  );
+  const isGreeting = false;
+  const userName = "Nick";
+
+  return <Greeting isGreeting={isGreeting} userName={userName} />;
 }
 
-function News(props) {
-  const news = props.newsItem;
-  const newsStyle = {
-    border: `3px solid ${news.isGood ? "green" : "red"}`,
-  };
-
+function Greeting(props) {
+  const { isGreeting, userName } = props;
   return (
-    <article style={newsStyle}>
-      <h2>{news.title}</h2>
-      <p>{news.body}</p>
-    </article>
+    <div>
+      {isGreeting ? "Hello" : "Goodbye"}, {userName}
+    </div>
   );
 }
